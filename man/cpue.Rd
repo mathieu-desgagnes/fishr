@@ -21,6 +21,6 @@ Calculate something
 }
 \examples{
 cpue(100,10)
-cpue(100, 10, gear_fator=0.5)
+cpue(100, 10, gear_factor=0.5)
 
 }

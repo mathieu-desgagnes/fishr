@@ -10,6 +10,6 @@
 #'
 #' @examples
 #' biomass_index(10, 10)
-biomass_index <- function(cpue,area_sewpt){
-  cpue *area_sewpt
+biomass_index <- function(cpue, area_sewpt) {
+  cpue * area_sewpt
 }

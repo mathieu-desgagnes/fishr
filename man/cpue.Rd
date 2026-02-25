@@ -4,7 +4,13 @@
 \alias{cpue}
 \title{Calculate something}
 \usage{
-cpue(catch, effort, gear_factor = 1, verbose = FALSE)
+cpue(
+  catch,
+  effort,
+  gear_factor = 1,
+  method = c("ratio", "log"),
+  verbose = getOption("fishr.verbose", default = FALSE)
+)
 }
 \arguments{
 \item{catch}{Numerci vector of catch}
@@ -12,6 +18,8 @@ cpue(catch, effort, gear_factor = 1, verbose = FALSE)
 \item{effort}{numeric}
 
 \item{gear_factor}{Numeric}
+
+\item{method}{Character; one of "ration" or "log"}
 
 \item{verbose}{logical}
 }

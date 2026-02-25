@@ -1,15 +1,37 @@
-#' Calculer biomasse index
+#' Calculate biomass index
 #'
-#' utilise l'aire balbayées
+#' Calculates biomass index from CPUE and area swept.
 #'
-#' @param cpue nomerci vector
-#' @param area_sewpt numeric vector de l'aire balayée
+#' @param cpue Numeric veccctor of CPUE values
+#' @param area_swept Numeric vector of area swept (e.g., km^2)
+#' @param catch catch value numeric
+#' @param effort effort value numeric
+#' @param verbose verbose
+#' @param ... arguments passed on to cpue()
 #'
-#' @returns value
+#' @returns A numeric vector of biomass index values
 #' @export
 #'
 #' @examples
-#' biomass_index(10, 10)
-biomass_index <- function(cpue, area_sewpt) {
-  cpue * area_sewpt
+#' salmon_cpue <- cpue(catch = 2, effort = 2)
+#' biomass_index(salmon_cpue, 5)
+biomass_index <- function(
+  cpue = NULL,
+  area_swept,
+  catch = NULL,
+  effort = NULL,
+  verbose = getOption("fishr.verbose", default = FALSE),
+  ...
+) {
+  rlang::check_dots_used()
+
+  if (is.null(cpue) && !is.null(catch) && !is.null(effort)) {
+    cpue <- cpue(catch, effort, ...)
+  }
+
+  if (is.null(cpue)) {
+    stop("Must provide either 'cpue' or both 'catch' and 'effort'.")
+  }
+
+  cpue * area_swept
 }

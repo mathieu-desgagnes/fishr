@@ -2,21 +2,37 @@
 % Please edit documentation in R/biomasse.R
 \name{biomass_index}
 \alias{biomass_index}
-\title{Calculer biomasse index}
+\title{Calculate biomass index}
 \usage{
-biomass_index(cpue, area_sewpt)
+biomass_index(
+  cpue = NULL,
+  area_swept,
+  catch = NULL,
+  effort = NULL,
+  verbose = getOption("fishr.verbose", default = FALSE),
+  ...
+)
 }
 \arguments{
-\item{cpue}{nomerci vector}
+\item{cpue}{Numeric veccctor of CPUE values}
 
-\item{area_sewpt}{numeric vector de l'aire balayée}
+\item{area_swept}{Numeric vector of area swept (e.g., km^2)}
+
+\item{catch}{catch value numeric}
+
+\item{effort}{effort value numeric}
+
+\item{verbose}{verbose}
+
+\item{...}{arguments passed on to cpue()}
 }
 \value{
-value
+A numeric vector of biomass index values
 }
 \description{
-utilise l'aire balbayées
+Calculates biomass index from CPUE and area swept.
 }
 \examples{
-biomass_index(10, 10)
+salmon_cpue <- cpue(catch = 2, effort = 2)
+biomass_index(salmon_cpue, 5)
 }

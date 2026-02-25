@@ -4,7 +4,7 @@
 \alias{cpue}
 \title{Calculate something}
 \usage{
-cpue(catch, effort, gear_factor = 1)
+cpue(catch, effort, gear_factor = 1, verbose = FALSE)
 }
 \arguments{
 \item{catch}{Numerci vector of catch}
@@ -12,6 +12,8 @@ cpue(catch, effort, gear_factor = 1)
 \item{effort}{numeric}
 
 \item{gear_factor}{Numeric}
+
+\item{verbose}{logical}
 }
 \value{
 someting vector of numeric
